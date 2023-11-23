@@ -1,9 +1,6 @@
 package se.lexicon;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Period;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -23,8 +20,9 @@ public class Main {
         //exercise_11();
         //exercise_12();
         //exercise_13();
-        exercise_14();
-
+        //exercise_14();
+        //exercise_15();
+        //exercise_16();
     }
 
     public static void exercise_1() {
@@ -59,7 +57,10 @@ public class Main {
         System.out.println(today.plusYears(10).minusMonths(10).getMonth());
     }
     public static void exercise_7() {
-
+    LocalDate currentTime = LocalDate.now().plusYears(10).minusMonths(10);
+    LocalDate birthDate = LocalDate.parse("1994-04-07");
+    Period period = Period.between(currentTime, birthDate);
+        System.out.println("Time elapsed = " + period);
     }
     public static void exercise_8(){
         Period period =Period.of(4, 7, 29);
@@ -86,5 +87,22 @@ public class Main {
     public static void  exercise_13() {
         LocalDateTime dateTime = LocalDateTime.of(2018,4,5,10,0);
     }
+    public static void exercise_14() {
+        LocalDateTime april5 = LocalDateTime.of(2001, 4, 5, 10, 0);
+        String custom =april5.format(DateTimeFormatter.ofPattern("EEEE dd MMMM HH:mm"));
+        //System.out.println("PrintTest = " + custom);
 
+
+    }
+    public static void exercise_15() {
+        LocalDate date =LocalDate.now();
+        LocalTime time =LocalTime.now();
+        LocalDateTime dateTime = LocalDateTime.of(date, time);
+    }
+    public static void  exercise_16() {
+        LocalDateTime object = LocalDateTime.now();
+        LocalDate localDate = object.toLocalDate();
+        LocalTime localTime = object.toLocalTime();
+        //Osäker ifall detta är korrekt.
+    }
 }
